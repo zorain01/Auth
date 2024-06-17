@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH TITANS</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+   
+    <nav>
+        <div>
+            
+            <a href="index.html">WELCOME TO OUR WORLD</a>
+        </div>
+       <div> 
+        <!-- <a href="home.html">Home</a> -->
+       </div>
+        <!-- <div>
+            <img src="tech2.jpg" alt="">
+        </div> -->
+        <div>
+            <a id="login-link" href="#">Login</a>
+            <a id="register-link" href="#">Register</a>
+        </div>
+    </nav>
+
+    <div class="login-register-section">
+        <section id="login-section" style="display: none;">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email"><br>
+                <input type="password" id="login-password" placeholder="Password"><br>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+        <section id="register-section" style="display: none;">
+            <h2>Register</h2>
+            <form id="register-form">
+                <input type="email" id="register-email" placeholder="Email"><br>
+                <input type="password" id="register-password" placeholder="Password"><br>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <div>Contact us: hacku@gmail.com</div>
+        <div>&copy; 2024 hackworld</div>
+    </footer>
+   
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAaPK7Gk87hw4U8chY3qIJZ5Ei5Wbu9qF4",
+          authDomain: "login-72e9f.firebaseapp.com",
+          projectId: "login-72e9f",
+          storageBucket: "login-72e9f.appspot.com",
+          messagingSenderId: "334712789308",
+          appId: "1:334712789308:web:e7cc8e45fb4fc95eb56639",
+          measurementId: "G-VE56Q8Y9SR"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        document.getElementById("login-link").addEventListener("click", function() {
+            document.getElementById("login-section").style.display = "block";
+            document.getElementById("register-section").style.display = "none";
+        });
+
+        document.getElementById("register-link").addEventListener("click", function() {
+            document.getElementById("login-section").style.display = "none";
+            document.getElementById("register-section").style.display = "block";
+        });
+
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+
+            signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                alert(user.email + " logged in successfully!");
+                window.location.href = "home.html";
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                alert(errorMessage);
+            });
+        });
+
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const email = document.getElementById("register-email").value;
+            const password = document.getElementById("register-password").value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                alert("Registration successful!");
+                window.location.href = "home.html";
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                alert(errorMessage);
+            });
+        });
+    </script>
+</body>
+</html>

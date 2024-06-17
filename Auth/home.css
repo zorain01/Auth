@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+max-height: fit-content;
+    background-image: url(tech\ TITANs\ \(3\).png);
+    margin: 0;
+    padding: 0;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+}
+nav {
+    background-color: rgb(3, 12, 23);
+    /* text-decoration: solid; */
+    
+  
+    
+    border-color: aqua;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 30px 30px 30px 30px
+
+    
+    
+    
+}
+nav a {
+    color: yellow;
+    
+}
+
+/* div {
+    background-image: url(tech\ TITANs\ \(3\).png);
+} */

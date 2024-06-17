@@ -1,0 +1,98 @@
+/* Dynamic color variables */
+:root {
+    --primary-color: #060606; /* Dark gray */
+    --secondary-color: #ffa500; /* Orange */
+    --text-color: #0da8bc; /* White */
+    --input-border-color: #ccc; /* Light gray */
+}
+
+/* Basic styling */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    
+    background-color: #022428;
+    padding: 30px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: var(--secondary-color);
+}
+/* .logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    position: relative;
+    /* flex: 1;  */
+}
+section {
+    margin-bottom: 20px;
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--text-color);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-width: 90%;
+    
+}
+footer {
+   
+    background-color: #022428;
+    color: rgb(14, 164, 206);
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button[type="submit"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+}
